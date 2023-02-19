@@ -26,6 +26,8 @@
 
 - Example of a static page is like the client request for index.html page from server, the server has that html page so it reponse back with that page. 
 
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/1.jpg)
+
 - Example of a dynamic page is like if the client request for an abc.html (add two numbers in the request) page which is not present on Calculation server. So server needs to build that page on run time. So such request goes to the helper application (Web containers). 
 
 - This web container has mapping of servlets. Servlets are basically java files which processes the request from the client on internet and provides the response in format of html page or any formats.
@@ -36,7 +38,9 @@
 
 - So the request is of addition and we need to call add servlet.So on the Tomcat server there is a file web.xml which is called Deployment Descriptor.
 
-- This web.xml maps every request to its respective servlets. There can be multiple request asking for same servlet so such scenario needs to be configured in web.xml. (2)
+- This web.xml maps every request to its respective servlets. There can be multiple request asking for same servlet so such scenario needs to be configured in web.xml. 
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/2.jpg)
 
 # Create servlet
 
@@ -48,6 +52,8 @@
 
 - No matter what is the reponse format , it goes back as an response object.
 
-- In the latest version , instead of referring web.xml file we can have Annotations which provides the same mapping like xml files. (3)
+- In the latest version , instead of referring web.xml file we can have Annotations which provides the same mapping like xml files.
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/3.jpg)
 
 
