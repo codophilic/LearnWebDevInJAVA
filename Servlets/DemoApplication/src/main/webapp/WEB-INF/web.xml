@@ -25,21 +25,51 @@
   	<servlet-class>com.AddNumbers.AddingServlet</servlet-class>
   </servlet>
   
-  
   <servlet-mapping>
   	<servlet-name>Addition</servlet-name>
   	<url-pattern>/Adding</url-pattern> <!-- Mentiond in the <form action="Adding"> -->
   </servlet-mapping>
+  
+  
+  
   
     <servlet>
   	<servlet-name>PostCheck</servlet-name>
   	<servlet-class>com.checkmethod.CheckMethod</servlet-class>
   </servlet>
   
-  
   <servlet-mapping>
   	<servlet-name>PostCheck</servlet-name>
   	<url-pattern>/PostMethod</url-pattern> 
+  </servlet-mapping>
+  
+  
+  <!-- Calling Servlet from a Servlet -->
+  
+  
+    <servlet>
+  		<servlet-name>FirstAddBeforeSquare</servlet-name>
+  		<servlet-class>com.AddAndSquare.Add</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>FirstAddBeforeSquare</servlet-name>
+  	<url-pattern>/AddSquare</url-pattern> 
+  </servlet-mapping>
+  
+  
+  
+  
+   <servlet>
+  		<servlet-name>addSquare</servlet-name>
+  		<servlet-class>com.AddAndSquare.AddAndSquare</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>addSquare</servlet-name>
+  	<url-pattern>/SquareAndAdd</url-pattern> 
   </servlet-mapping>
   
 </web-app>

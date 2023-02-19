@@ -41,7 +41,7 @@ public class CheckMethod extends HttpServlet {
 		 PostMethod url and from web.xml the request services goes to the respective servlet which 
 		 is CheckMethod. 
 		 The CheckMethod has parent class HttpServlet, so the request goes to the service() method 
-		 in HttpServlet which calls doPost or doget method.
+		 in HttpServlet which calls doPost or doGet method.
 		 */
 		PrintWriter out = res.getWriter() ;
 		

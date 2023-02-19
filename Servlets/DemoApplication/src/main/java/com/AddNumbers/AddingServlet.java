@@ -3,6 +3,8 @@ package com.AddNumbers;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,18 +23,19 @@ public class AddingServlet extends HttpServlet {
 	 Tomcat automatically creates these both object we just provide reference variable.	 
 	 
 	 */
-	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException { 
+	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException { 
 		
-		int num1=Integer.parseInt(req.getParameter("num1")); // Get parameter provides value in String so we parse it in Integer.
-		int num2=Integer.parseInt(req.getParameter("num2")); 
+		int num1=0;
+		int num2=0;
+		num1=Integer.parseInt(req.getParameter("num1")); // Get parameter provides value in String so we parse it in Integer.
+		num2=Integer.parseInt(req.getParameter("num2")); 
 		
 		/*
 		 getWriter() calls PrintWriter class 
 		 */
 		PrintWriter out = res.getWriter() ;
 		
-		out.println("result is "+(num1+num2));
+		out.println("result is "+(num1+num2)); // This won't work when we call servlet from a servlet.
 		
-	
 	}
 }

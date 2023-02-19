@@ -42,7 +42,7 @@
 
 ![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/2.jpg)
 
-# Create servlet
+## Create servlet
 
 - Servlets are normal java class which extends HttpServlet class.
 
@@ -70,3 +70,6 @@
 
 - To fetch data from server use GET, to submit the data to server use POST.
 
+## HttpServletRequest/Response
+
+- 
