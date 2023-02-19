@@ -36,7 +36,7 @@
 
 - So lets say we are using Tomcat container, so the request is asked for abc.html (add the two numbers provided in the request) page, so that request goes to the servlet. Now servlet is basically java files which has names of it and there can be multiple servlets having different functionality(Subtract,Add,Multiple,Divide).
 
-- So the request is of addition and we need to call add servlet.So on the Tomcat server there is a file web.xml which is called Deployment Descriptor.
+- So the request is of addition and we need to call add servlet.So on the Tomcat server there is a file web.xml which is called Deployment Descriptor. So the web.xml calls the servlet and runs that on tomcat server , the output response is send back to the Calculation server.
 
 - This web.xml maps every request to its respective servlets. There can be multiple request asking for same servlet so such scenario needs to be configured in web.xml. 
 
@@ -56,4 +56,17 @@
 
 ![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/3.jpg)
 
+- Used Eclipse Enteprise and web developer with Tomcat 9.
+
+- We generate a new project named *DemoApplication* under Servlets folder. This new project consists of multiple folders.
+
+- Looking into `src/main/webapp/WEB-INF` there is web.xml. Under *DemoApplication* there is `src/` folder which will contain all the java codes and logic for servlets.
+
+- Created a simple *index.html* file. All html pages goes under `webapp` folder. Right click on page and use run on server.
+
+- A servlet is a java file with a class name provided , having a custom package name provided. We can see there is a folder name `com/AddingNumbers` which is package and inside there we have *AddingServlet.java* file.
+
+- We are using HTTP protocol which consists of 7 methods from which 5 methods are generally used (GET,POST,PUT,Delete,Option). The default method is used GET.
+
+- To fetch data from server use GET, to submit the data to server use POST.
 

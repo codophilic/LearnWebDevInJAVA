@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>DemoApplication</display-name>
+  
+  
+  <!-- For every servlet , there should be two tags 
+  1. <servlet>
+  2. <servlet-mapping>
+  
+  <servlet> tag will have more sub tags named <servlet-name> & <servlet-class>
+  
+  <servlet-mapping> tag will have more sub tags named <servlet-name> & <url-pattern>
+  
+  <servlet-name> -> provides link between of <servlet> & <servlet-mapping> 
+  
+  <servlet-class> -> must have the java file name with the complete package name of servlet
+  
+  <url-pattern> -> url field starting with '/name_in_html' this should be
+  					same as provided in the html tag page.
+  
+   -->
+  
+  <servlet>
+  	<servlet-name>Addition</servlet-name>
+  	<servlet-class>com.AddNumbers.AddingServlet</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>Addition</servlet-name>
+  	<url-pattern>/Adding</url-pattern> <!-- Mentiond in the <form action="Adding"> -->
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>PostCheck</servlet-name>
+  	<servlet-class>com.checkmethod.CheckMethod</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>PostCheck</servlet-name>
+  	<url-pattern>/PostMethod</url-pattern> 
+  </servlet-mapping>
+  
+</web-app>

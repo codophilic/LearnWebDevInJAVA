@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<!-- Creating simple calculator page --> 
+
+<body>
+	Addition Calculator<br>
+	<form action="Adding" method='get'> <!-- default GET method is used -->
+	<!-- This basically generates url when click on submit 
+		http://localhost:8080/DemoApplication/Adding?num1=12&num1=13 (query string)
+	Now this Adding action will find Adding servlet and call it-->
+	
+	Enter 1st number: <input type = 'text' name='num1'><br>
+	Enter 2st number: <input type = 'text' name='num2'><br>
+	
+	<input type='submit'>
+	<!-- After clicking on submit , tomcat will take the query string and search for the url pattern
+	name Adding and then call the corresponding servlet.
+	in web.xml -->
+	<br>
+	</form>
+	
+	Calling Post Function using POST method
+	<form action="PostMethod" method='post'>
+	<!-- In POST method we don't get query string
+		http://localhost:8080/DemoApplication/Adding -->
+	
+	Enter any number and check POST request: <input type = 'text' name='num1'><br>
+	
+	<input type='submit'>
+	<br>
+	</form>
+	
+	Calling Post Function using GET method
+	<form action="PostMethod" method='get'>
+	<!-- In POST method we don't get query string
+		http://localhost:8080/DemoApplication/Adding -->
+	
+	Enter any number and check POST request: <input type = 'text' name='num1'><br>
+	
+	<input type='submit'>
+	</form>
+	
+	
+	
+</body>
+</html>
