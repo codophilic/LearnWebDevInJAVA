@@ -49,7 +49,7 @@
 	<br>
 	
 	</form>
-	Calling a Servlet from Servlet 
+	Calling a Servlet from Servlet Using RequestDispatcher
 	<form action="AddSquare" method="get">
 	<!-- In POST method we don't get query string
 		http://localhost:8080/DemoApplication/Adding -->
@@ -62,7 +62,21 @@
 	<input type='submit'>
 	</form>
 	
+	<br>
+	<br>
 	
+	</form>
+	Calling a Servlet from Servlet Using sendRedirect
+	<form action="amazon" method="get">
+	<!-- In POST method we don't get query string
+		http://localhost:8080/DemoApplication/Adding -->
+	
+	Enter your payment for the product which will re-direct you to Payment-Gateway <br>
+	
+	<input type = 'text' name='money'><br>
+	
+	<input type='submit'>
+	</form>
 	
 	
 	

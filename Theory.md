@@ -72,4 +72,26 @@
 
 ## HttpServletRequest/Response
 
+- When a client sents a request to the server, the data, the browser information or ip all these details may be required to the server. So these details are formatted in form of an object.
+
+- Similarly to send back the data/information the request are in format of objects. Data/information can be of any type.
+
+- These object formatting is handle by Tomcat servers.
+
+- HttpServletRequest/Response is an interface which is implemented by Tomcat.
+
+## RequestDispatcher and sendRedirect
+
+- In RequestDispatcher, we call one servlet(s1) from another servlet(s2). So, s1 request response object get passed to s2. S2 perform the operation and provides the response directly to the client page which has s1 url. These servlets are within same web application.
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/4.jpg)
+
+- Suppose we are calling a servlet from one web application to another application (like in amazon the payment is re-directed to Paypal/BillDesk etc.) we use sendRedirect.
+
+- So, S1 will re-directs the browser page of client with its response to S2 and S2 will perform operation and provide respose back to browser.
+
+- So in sendRedirect thw browser gets two different responses.
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/5.jpg)
+
 - 

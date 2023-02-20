@@ -72,4 +72,26 @@
   	<url-pattern>/SquareAndAdd</url-pattern> 
   </servlet-mapping>
   
+  <servlet>
+  		<servlet-name>Amazon</servlet-name>
+  		<servlet-class>Amazon.CheckoutPayment.CheckoutPayment</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>Amazon</servlet-name>
+  	<url-pattern>/amazon</url-pattern> 
+  </servlet-mapping>
+  
+   <servlet>
+  		<servlet-name>PaymentGateway</servlet-name>
+  		<servlet-class>PaymentGateway.makepayment.makepayment</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>PaymentGateway</servlet-name>
+  	<url-pattern>/PaymentGateway</url-pattern> 
+  </servlet-mapping>
+  
 </web-app>
