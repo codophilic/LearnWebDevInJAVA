@@ -83,7 +83,7 @@
   	<url-pattern>/amazon</url-pattern> 
   </servlet-mapping>
   
-   <servlet>
+  <servlet>
   		<servlet-name>PaymentGateway</servlet-name>
   		<servlet-class>PaymentGateway.makepayment.makepayment</servlet-class>
   </servlet>
@@ -92,6 +92,29 @@
   <servlet-mapping>
   	<servlet-name>PaymentGateway</servlet-name>
   	<url-pattern>/PaymentGateway</url-pattern> 
+  </servlet-mapping>
+  
+  
+  <servlet>
+  		<servlet-name>Usercreation</servlet-name>
+  		<servlet-class>Session.createUser.createUsert</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>Usercreation</servlet-name>
+  	<url-pattern>/getsession</url-pattern> 
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>getUser</servlet-name>
+  		<servlet-class>Session.getUserlogin.getUserlogin</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>getUser</servlet-name>
+  	<url-pattern>/getuser</url-pattern> 
   </servlet-mapping>
   
 </web-app>

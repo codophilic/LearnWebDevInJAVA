@@ -94,4 +94,54 @@
 
 ![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/5.jpg)
 
-- 
+## Session
+
+- Session simply means a particular interval of time. Session Tracking is a way to maintain state (data) of an user. It is also known as session management in servlet. Http protocol is a stateless so we need to maintain state using session tracking techniques.
+
+- Each time user requests to the server, server treats the request as the new request. So we need to maintain the state of an user to recognize to particular user.
+
+- HTTP is a “stateless” protocol, which means that each time a client requests a Web page, the client establishes a new connection with the Web server, and the server does not retain track of prior requests.
+
+- The conversion of a user over a period of time is referred to as a session. In general, it refers to a certain period of time.
+
+- The recording of the object in session is known as tracking.
+
+- Session tracking is the process of remembering and documenting customer conversions over time. Session management is another name for it.
+
+- The term “stateful web application” refers to a web application that is capable of remembering and recording client conversions over time.
+
+- Suppose a servlets wants a data of another servlet , but it does not get called. The data should be passed in a concept called session.
+
+- There are four techniques used in Session tracking:
+
+1. Cookies
+
+2. Hidden Form Field
+
+3. URL Rewriting
+
+4. HttpSession
+
+### Cookies
+
+- A cookie is a small piece of information generated from a specific websites which is stored in client computer.
+
+- These cookies have multiple functions such has keeping track of user browsering activity which help to target ads. Example suppose in amazon you are searching for a laptop oof specific model, the same search context will also been shown on Flipkart,FB etc. 
+
+- It also remebers login details of a client/user.
+
+- Each cookie has its own unique ID which helps web developers to track how many user visit their site.
+
+- When a user visit website for a first time, a cookie is created on their hard drive pc which keeps track of session during visit on their website.
+
+- The cookie is stored in the user browser, the client (user’s browser) sends this cookie back to the server for all the subsequent requests until the cookie is valid. The Servlet container checks the request header for cookies and get the session information from the cookie and use the associated session from the server memory.
+
+- The session remains active for the time specified in tag in web.xml. If tag in not set in web.xml then the session remains active for 30 minutes. Cookie remains active as long as the user’s browser is running, as soon as the browser is closed, the cookie and associated session info is destroyed. So when the user opens the browser again and sends request to web server, the new session is being created.
+
+- 2 types of cookies in a session
+
+1. Non-persistent cookie - It is valid for single session only. It is removed each time when user closes the browser.
+
+2. Persistent cookie - It is valid for multiple session . It is not removed each time when user closes the browser. It is removed only if user logout or signout.
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/6.PNG)

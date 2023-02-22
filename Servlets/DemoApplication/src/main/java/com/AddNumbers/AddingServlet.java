@@ -33,7 +33,7 @@ public class AddingServlet extends HttpServlet {
 		/*
 		 getWriter() calls PrintWriter class 
 		 */
-		PrintWriter out = res.getWriter() ;
+		PrintWriter out = res.getWriter() ; // Object is provided by Tomcat
 		
 		out.println("result is "+(num1+num2)); // This won't work when we call servlet from a servlet.
 		

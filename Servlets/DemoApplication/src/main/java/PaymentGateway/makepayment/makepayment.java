@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class makepayment extends HttpServlet {
 	public void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException {
-		PrintWriter out = res.getWriter() ;
+		PrintWriter out = res.getWriter() ; // Object is provided by Tomcat
 		int money = Integer.parseInt(req.getParameter("money")); 
 		/*
 		 GetParameter takes data from URL url=datavalue
