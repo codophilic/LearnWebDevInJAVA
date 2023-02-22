@@ -61,6 +61,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOExce
 			else {
 				
 				out.println("Wrong Credentials");
+				return;
 			}
 		}
 		out.println("Wrong UserID");
