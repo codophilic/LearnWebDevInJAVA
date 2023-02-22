@@ -138,6 +138,8 @@
 
 - The session remains active for the time specified in tag in web.xml. If tag in not set in web.xml then the session remains active for 30 minutes. Cookie remains active as long as the user’s browser is running, as soon as the browser is closed, the cookie and associated session info is destroyed. So when the user opens the browser again and sends request to web server, the new session is being created.
 
+- If one runs the servlet link in incognito mode directly, cookies are not recognized and it is treated as a new user.
+
 - 2 types of cookies in a session
 
 1. Non-persistent cookie - It is valid for single session only. It is removed each time when user closes the browser.

@@ -24,7 +24,8 @@ public class CreateUserIDandPassword extends HttpServlet {
 		 */
 		
 		PrintWriter out = res.getWriter();
-		out.println("Acount registerd successfully");
+		out.println("Account registerd successfully");
+		//res.sendRedirect("login?="+UserId);
 		
 	}
 }

@@ -10,9 +10,23 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LoginUserIDandPassword extends HttpServlet {
 public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+	
+		PrintWriter out = res.getWriter();
+//		res.setContentType("text/html;charset=UTF-8");
+//		out.println("<html><body><form><form action='login' method='get'>"
+//				+"<h2>Login Using your new useID and password</h2>"
+//				+"Enter your UserID"
+//				+"<input type = 'text' name='UserID'><br>"
+//				+ "Enter your password"
+//				+"<input type='text' name='pass'><br>"
+//				+"<input type='submit'>"
+//				+"</form></body></html>"); //Need to use sendReidrect method to call this web page 
 		
-		String UserId = (String) req.getParameter("UserID");
-		String password = (String) req.getParameter("pass");
+		
+	
+			
+		String LoginUserID = (String) req.getParameter("UserID");
+		String LoginPassword = (String) req.getParameter("pass");
 		
 		/*
 		 Now when the client request there are multiplies cookies associated with the request
@@ -21,29 +35,36 @@ public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOExce
 		
 		
 		Cookie cookies[] = req.getCookies(); // Creating array of cookies
-		String Userid ="";
-		String pass="";
+		if (cookies == null) {
+            out.println(
+                "<h1>You are new user, go to home page");
+            return;
+        }
+
+		String SetUserid ="";
+		String Setpass="";
+		
 		for(Cookie c:cookies) {
-			if(c.getName().equals("cookieUserId")) {
-				Userid= c.getValue();
+			if(c.getName().equals("UserID")) { // Don;t use cookies object of calling subject m use variable which was used for declaration
+				SetUserid= c.getValue();
 			}
-			if(c.getName().equals("cookiePass")) {
-				pass = c.getValue();
+			if(c.getName().equals("pass")) {
+				Setpass = c.getValue();
 			}
 		}
-		System.out.println(UserId+UserId.getClass()+Userid+Userid.getClass());
-		if(UserId.equals(Userid)){
-			if(password.equals(pass)) {
-				PrintWriter out = res.getWriter();
+		if(SetUserid.equals(LoginUserID)){
+			if(Setpass.equals(LoginPassword)) {
+				
 				out.println("Login successfully");
+				return;
 			}
 			else {
-				PrintWriter out = res.getWriter();
+				
 				out.println("Wrong Credentials");
 			}
 		}
-		PrintWriter out = res.getWriter();
 		out.println("Wrong UserID");
+		out.close();
 		
 }
 }
