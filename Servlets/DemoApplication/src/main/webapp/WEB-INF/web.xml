@@ -139,4 +139,38 @@
   	<url-pattern>/login</url-pattern> 
   </servlet-mapping>
   
+  
+  
+  <servlet>
+  		<servlet-name>ServletConfig</servlet-name>
+  		<servlet-class>Config.Servletconfig.Servletconfig</servlet-class>
+  		<init-param>
+  			<param-name>ParticularDB</param-name>
+  			<param-value>1202</param-value>
+  		</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ServletConfig</servlet-name>
+  	<url-pattern>/ParticularConfigDB</url-pattern> 
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+  		<servlet-name>ServletContext</servlet-name>
+  		<servlet-class>context.Servletcontext.Servletcontext</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>ServletContext</servlet-name>
+  	<url-pattern>/GeneralConfigDB</url-pattern> 
+  </servlet-mapping>
+  
+  <context-param>
+  	<param-name>GeneralDB</param-name>
+  	<param-value>1000</param-value>
+  </context-param>
+  
 </web-app>

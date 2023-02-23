@@ -147,3 +147,79 @@
 2. Persistent cookie - It is valid for multiple session . It is not removed each time when user closes the browser. It is removed only if user logout or signout.
 
 ![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/6.PNG)
+
+
+## ServletConfig & ServletContext
+
+- ServletConfig and ServletContext, both are objects created at the time of servlet initialization and used to provide some initial parameters or configuration information to the servlet. 
+
+- But, the difference lies in the fact that information shared by ServletConfig is for a specific servlet, while information shared by ServletContext is available for all servlets in the web application.
+
+### ServletConfig
+
+- Let's say you are working with multiple DB's where different servlet will trigger its respected DB. So we here use ServletConfig where we define the configuration of DB for each servlet in web.xml
+
+- ServletConfig object is one per Servlet component or class. It is accessible only within the configured servlet class.
+
+- Can be used to gather init-param <init-param> values from the web.xml file to the Servlet component.	It can be accessed through getServletConfig() Method. Example:- ServletConfig cg = getServletConfig();
+
+
+
+### ServletContext
+
+- Let's say you are working with One DB where All servlet will trigger this particular DB only. So we here use ServletContext where we define the configuration of DB for in web.xml using servletcontext.
+
+- The ServletContext object is one per web application.It is visible and accessible in all the servlet/JSP components of the web application, so it is also called the global memory of a web application.
+
+- Can be used to gather context-param <context-param> values from the web.xml file to the Servlet component.It can be accessed through getServletContext() Method. Example:- ServletContext cs = getServletContext();
+
+
+## Annotations
+
+- the Servlet life cycle will be managed by the Servlet container that is under the Web/Application server. Whenever an HttpRequest comes from the client browser, the servlet container will map the request to the corresponding servlet based on the URL mappings provided in the deployment descriptor file – web.xml. 
+
+- Java Servlets provides a number of annotations to allow users to declare servlets, filters, listeners in the `javax.servlet.annotation` package.
+
+- Annotation represents the metadata. If you use annotation, deployment descriptor (web.xml file) is not required. But you should have tomcat7 as it will not run in the previous versions of tomcat. 
+
+- `@WebServlet` annotation is used to map the servlet with the specified name.
+
+
+# JSP ( Java Server Page )
+
+- It stands for Java Server Pages.It is a server side technology. It is used for creating web application. It is used to create dynamic web content.
+
+In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based technology helps us to create dynamic and platform independent web pages. In this, Java code can be inserted in HTML/ XML pages or both.
+
+- In a JSP file, between the HTML content , java codes are written between <% codes %> called delimeter.
+
+- JSP provides reference variale of all objects like request and reponse object by itself named as **request** and **response** which are also called implicit Objects in JSP.
+
+- A JSP page consists of HTML tags and JSP tags. The JSP pages are easier to maintain than Servlet because we can separate designing and development. It provides some additional features such as Expression Language, Custom Tags, etc.
+
+## Why to use servlet if JSP is so easy?
+
+- In the backend on servlet container (Tomcat) , the container run all the servlet files. It does not run JSP files, the JSP files are converted into servlets.
+
+-  JSP page is translated into Servlet by the help of JSP translator. The JSP translator is a part of the web server which is responsible for translating the JSP page into Servlet. 
+
+- After that, Servlet page is compiled by the compiler and gets converted into the class file. Moreover, all the processes that happen in Servlet are performed on JSP later like initialization, committing response to the browser and destroy.
+
+- So, when we create a Add.jsp file, that JSP files will be converted into a servlet having class name present in JSP which **AddJSP**. Now this servlet will extends `HttpServlet` and this servlet will provide all the objects/doGet or doPost methods required to work to the Add.JSP file (request,response,out etc. which are provided by the Tomcat to the servlet file). So the logic written in <% logic %> gets copied in the method of servlet.
+
+- All the objects provided by the JSP are called implicit objects.
+
+- <% %> tag are called as scriptlet.
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/7.jpg)
+
+- Suppose you want to declare variable/method outside the method inside the class like instance variable, we can use <%! %> called declaration tag.
+
+- Suppose you want to import any packages use <%@ page import = "package.name.*" %> called as directive tag. For multiple packages <%@ page import = "package1.name.*, package2.name2.*" %>
+
+
+- Suppose you want to print out some information on page, this can be done using `out.println` in scriptlet. In JSP there is another way using <%= contents/variables/expression %> called as expression tag.
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/8.jpg)
+
+- So to implement logic we can use servlet , but to implement web page and logic we can use JSP.
