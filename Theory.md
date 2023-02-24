@@ -229,3 +229,82 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 ![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/9.jpg)
 
 ![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/10.jpg)
+
+## JSP Directive
+
+- There are 3 types of directive tags
+
+1. @page -> use to import package
+
+- Syntax: `<%@ page attribute="vaue" attribute="value"..%>`
+
+- Commonly used attributes are:
+
+1. language="scripting language" ( default java )
+
+2. extends="className" (extending a class in servlet for that JSP)
+
+3. import="importList" (packages)
+
+4. session="true|false" (if wanted to use session or not)
+
+5. autoFlush="true|false" (clear Buffer when its full)
+
+6. contentType="ctinfo" (response sent in format of HTML,JSON, XML etc.)
+
+7. errorPage="error_url" (if any error occur redirect to the error_url)
+
+8. isErrorPage="true|alse"
+
+9. info"information"
+
+10. isELIgnored="true|false"
+
+11. isThreadSafe="true|false
+
+
+2. @include -> includes other JSP files in current JSP file
+
+- - Syntax: `<%@ include file="filename.jsp" %>`
+
+3. @taglib -> external tags provided by other frameworks
+
+- - - Syntax: `<%@ taglib uri="uri" prefix="fx" %>`
+
+## Implicit Object provided by JSP
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/11.jpg)
+
+### pageContext
+
+- In JSP, pageContext is an implicit object of type PageContext class.The pageContext object can be used to set,get or remove attribute.
+
+- The entire JSP page is represented by the PageContext object. This object is considered as a method to obtain detail about the page while keeping away from most of the execution information.
+
+- For each request, the credentials to the response and request objects are saved by this pageContext object. By accessing attributes of the pageContext object, the out, session, config, and application objects are obtained.
+
+- This pageContext object further holds information regarding the directives provided to the JSP page, together with the page scope, buffering information, and the errorPageURL.
+
+- By using the pageContext object you can set attributes, get attributes and remove attributes that are present in the different scopes like as page, request, session, and application scopes.
+
+1. page – Page scope is managed by the pageContext object. As a page context object is created for every JSP page, so, every JSP page will have a specific page scope. PageScope is the default scope. The object is accessible only from within the JSP page where it had been created. A page-scope object is stored within the implicit pageContext object. The page scope ends when the page stops executing. If we declare the info in page scope by using pageContext object then that data should have the scope up to this JSP page. Note that when the user refreshes the page while executing a JSP page, new instances will be created of all page-scope object. (Default)
+
+2. request – SRequest scope is managed by the request object. This object is used for reading the request object. If the same request is shared by more than one JSP page those sharing the same request object come under the same request scope. Request Scope begins whenever the request object is created by the servlet container and the request scope ends whenever the request object is deleted by the servlet container.
+
+3. session – Session scope is managed by the session object. The same session object is available to all JSP pages as long as the session is not expired. Whenever a session is expired or session.invalidate() is called then a new session is created for the next requesting page. 
+
+4. application – The application scope is maintained by the application pointing object. Application scope begins whenever the ServletContext implementation object is created. Application scope ends whenever the ServletContext implementation object is deleted. This object is used for reading attributes from ServletContext. The object is accessible from any JSP page that’s utilized in an equivalent Web application because the JSP page that created the thing, within any single Java virtual machine. 
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/12.JPG)
+
+
+
+
+
+
+
+
+
+
+
+
