@@ -205,7 +205,7 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 
 - After that, Servlet page is compiled by the compiler and gets converted into the class file. Moreover, all the processes that happen in Servlet are performed on JSP later like initialization, committing response to the browser and destroy.
 
-- So, when we create a Add.jsp file, that JSP files will be converted into a servlet having class name present in JSP which **Add_jsp**. Now this servlet will extends `HttpServlet` and this servlet will provide all the objects/doGet or doPost methods required to work to the Add.JSP file (request,response,out etc. which are provided by the Tomcat to the servlet file). So the logic written in <% logic %> gets copied in the method of servlet.
+- So, when we create a Add.jsp file, that JSP files will be converted into a servlet having class name present in JSP which **Add_jsp**. Now this servlet will extends `HttpServlet` and this servlet will provide all the objects/Service() method (doPost or doGet) required to work to the Add.JSP file (request,response,out etc. which are provided by the Tomcat to the servlet file). So the logic written in <% logic %> gets copied in the method of servlet.
 
 - All the objects provided by the JSP are called implicit objects.
 
@@ -223,3 +223,9 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 ![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/8.jpg)
 
 - So to implement logic we can use servlet , but to implement web page and logic we can use JSP.
+
+- Below `public void _jspService(` method we can see implicit obejcts are defined.
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/9.jpg)
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/10.jpg)
