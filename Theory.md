@@ -297,6 +297,24 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 
 ![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/12.JPG)
 
+## Exception in JSP
+
+-  In JSP,  to perform exception handlin by errorPage and isErrorPage attributes of page directive.
+
+- Basically whenever there is an error or exception in JSP , we can redirect to a JSP page called as error page which will show message.
+
+## JDBC with JSP 
+
+- Here we are using MYSQL Database. First we need to import the package.
+
+- Load and register drivers. Every DBMS has its own driver. For MySQL the driver is `com.mysqljdbc.Driver`. This is a 3rd party library so we need to install its library in the **lib** folder.
+
+- Downloaded the Jar file `https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.27` and placed in `WEB-INF/lib` folder.
+
+- Create connection with DB. Provide Username & password for DB.
+
+
+
 
 
 
