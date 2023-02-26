@@ -337,7 +337,7 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 
 - So here , we are processing data using servlets in controller and displaying data using JSP which is view using controller Model which carrys only data.
 
-![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/13.JPG)
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/13.jpg)
 
 ## JSTL (JavaServer Pages Standard Tag Library)
 
