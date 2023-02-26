@@ -19,7 +19,7 @@
 	String name = request.getParameter("name");
 	
 	String query="Select * from Employee where Employee_first_name="+"\""+name+"\"";
-	System.out.println(query);
+	//System.out.println(query);
 	
 	
 	Statement st = con.createStatement();

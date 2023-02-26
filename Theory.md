@@ -315,10 +315,29 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 
 
 
+# MVC using servlet & JSP
 
+- When we use a JSP page it takes some time to convert into servlets. Whereas servlet is directly run on the server.
 
+-  Therefore to process data it is always recommended to use servlet. JSP use case scenarion comes when a client request for a dynamic view page with static content and not processing.  For only static pages? we have HTML & CSS.
 
+- MVC Pattern stands for Model-View-Controller Pattern. This pattern is used to separate application's concerns.
 
+1. Model - Model represents an object or JAVA POJO carrying data. It can also have logic to update controller if its data changes.
+
+2. View - View represents the visualization of the data that model contains. (JSP)
+
+3. Controller - Controller acts on both model and view. It controls the data flow into model object and updates the view whenever data changes. It keeps view and model separate. (Servlet)
+
+- In Java Programming, the Model contains the simple Java classes, the View used to display the data and the Controller contains the servlets.
+
+- So basically, clients sents a request(`/getStudentInfo`) for a page to the controller(Servlets) which will takes the data inputs from the request, process those data and creates a Model(POJO).  Model is an object with the processed daya done by servlets(`StudentData`). This Model goes to the view(JSP) which takes the model data from controller and display the page to the client(`StudentProfile`). This architecture is called MVC.
+
+- So here , we are processing data using servlets in controller and displaying data using JSP which is view using controller Model which carrys only data.
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/13.JPG)
+
+## 
 
 
 
