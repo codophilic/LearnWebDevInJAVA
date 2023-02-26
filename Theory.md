@@ -80,6 +80,8 @@
 
 - HttpServletRequest/Response is an interface which is implemented by Tomcat.
 
+- In the latest version `javax.servlet` package is been replaced by `jakarta.servlet`.(In Tomcat libraries , `servlet-api.jar` has defined these packages)
+
 ## RequestDispatcher and sendRedirect
 
 - In RequestDispatcher, we call one servlet(s1) from another servlet(s2). So, s1 request response object get passed to s2. S2 perform the operation and provides the response directly to the client page which has s1 url. These servlets are within same web application.
