@@ -337,7 +337,42 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 
 ![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/13.JPG)
 
-## 
+## JSTL (JavaServer Pages Standard Tag Library)
+
+- Initially, Web designers used scriptlets in JSP pages to generate dynamic content. This resulted in readability issues and also made it difficult to maintain the JSP page. Custom tags were introduced to overcome the problems faced in using scriptlets. Although custom tags proved to be a better choice than scriptlets they had certain limitations too Web designers had to spend a lot of time in coding packaging and testing these tags before using them.
+
+- The introduction of JSTL has helped Web designers overcome the shortcomings of custom tags, by encapsulating the common functionalities that the Web designer may need to develop Web pages. These functionalities included the use of tag libraries such as core, SQL and XML. JSTL is Introduced particularly for those Web designers who are not well versed with Java programming.
+
+- Advantages of JSTL:
+
+1. Fast Development.
+
+2. Code Reusability.
+
+3. No need to use a scriptlet tag.
+
+- 5 types of JSTL tags are used:
+
+1. Core tags
+
+2. Function tags
+
+3. Formatting tags
+
+4. XML tags
+
+5. SQL tags
+
+### how to work with JSTL?
+
+- To work with JSTL library we need to download its library and placed it under `WEB-INF/lib` folder.
+
+- To use each tag we need to first use `<%@ taglib uri="uri" prefix="fx" %>` declarative tag.
+
+- Here `uri` will the url and prefix (to denote this is a custom tag and not html tags) for each tag to be used.
+
+- Example: To use Core tag , we use `<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>`. Check more [here](https://www.tutorialspoint.com/jsp/jsp_standard_tag_library.htm)
+
 
 
 
