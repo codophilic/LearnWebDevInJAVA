@@ -187,6 +187,10 @@
 - `@WebServlet` annotation is used to map the servlet with the specified name.
 
 
+
+
+
+
 # JSP ( Java Server Page )
 
 - It stands for Java Server Pages.It is a server side technology. It is used for creating web application. It is used to create dynamic web content.
@@ -317,6 +321,8 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 
 
 
+
+
 # MVC using servlet & JSP
 
 - When we use a JSP page it takes some time to convert into servlets. Whereas servlet is directly run on the server.
@@ -376,7 +382,21 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 - Example: To use Core tag , we use `<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>`. Check more [here](https://www.tutorialspoint.com/jsp/jsp_standard_tag_library.htm)
 
 
+## Filters
 
+- A filter is an object that is invoked at the preprocessing and postprocessing of a request.
+
+- It is mainly used to perform filtering tasks such as conversion, logging, compression, encryption and decryption, input validation etc.
+
+- The servlet filter is pluggable, i.e. its entry is defined in the web.xml file, if we remove the entry of filter from the web.xml file, filter will be removed automatically and we don't need to change the servlet.
+
+- Example if there are multiple servlet , so when a request goes to servlet it must go via security filter & logging filter, validating request. If any one of the checks fail ,these filter does not allow request to go-ahead and return their own response.
+
+- When we use multiple filters we need to chain them, this channing is done by tomcat server which refers the web.xml which has all these filter configurations. 
+
+- Filter is an Interface
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/14.jpg)
 
 
 
