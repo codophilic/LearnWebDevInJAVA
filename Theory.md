@@ -399,6 +399,10 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 ![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/14.jpg)
 
 
+# Login Page for an application
 
+- When a website host multiple web pages , where the login credentials are required, we need to main the state of the user through out the website. Http protocols are statelss and we need to maintain the state throughout the series of web pages. So here we use Session Management or cookies.
+
+- In session management , the user data are maintain in the server side. If we use cookie client can manipulate with that cookies. So for login purpose we are using session.
 
 
