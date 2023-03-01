@@ -12,7 +12,7 @@
 <body>
 <h1>Use Functions tags</h1>
 
-<c:set var="st" value="${param.txt}" /> <!--  Accepting input -->
+<c:set var="st" value="${param.txt}" /> <!--  Accepting input from client-->
 
 You Entered String <c:out value="${st}"></c:out> which is ${fn:length(st)}.
 

@@ -46,7 +46,7 @@ public class NewUser extends HttpServlet implements Servlet {
 			rs.next();
 			try{
 				String dup=rs.getString(1);
-				reply= "There already exist a same user name "+dup;
+				reply= "There already exist a same user name";
 			}
 			catch (SQLException e) {
 				String query1="Select * from user where user_password="+"\""+newpassword+"\"";
@@ -54,7 +54,7 @@ public class NewUser extends HttpServlet implements Servlet {
 				rs1.next();
 				try {
 					String dup=rs1.getString(2);
-					reply ="Please set a new password";
+					reply ="Please create a new password";
 				}
 				catch (SQLException e2) {
 					PreparedStatement pst = con.prepareStatement("insert into user values(?, ?)");
@@ -71,6 +71,7 @@ public class NewUser extends HttpServlet implements Servlet {
 		}
 		
 		request.setAttribute("reply",reply);
+		request.getRequestDispatcher("NewUser.jsp").forward(request, response);
 		
 	}
 }

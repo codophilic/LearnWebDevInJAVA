@@ -23,5 +23,24 @@
 	<br>
 	<br>
 	
+	<!-- Displaying servlet response -->
+	<c:if test="${requestScope.reply=='There already exist a same user name'}">
+	There already exist a same user name . Try different user name
+	</c:if>
+	<c:if test="${requestScope.reply=='Please create a new password'}">
+	Please try a new password.
+	</c:if>
+	<c:if test="${requestScope.reply=='User account created successfully'}">
+	Account Created Successfully, go back to home page and login with the user name and password.
+	<button onClick="window.location.href='http://localhost:8080/MyWebsite';">
+	Home Page 
+	</button> 
+	</c:if>
+	
+	
+	
+
+	
+	
 </body>
 </html>
