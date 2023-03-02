@@ -406,3 +406,33 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 - In session management , the user data are maintain in the server side. If we use cookie client can manipulate with that cookies. So for login purpose we are using session.
 
 - Suppose on a browser , when we logout our session gets invalid, but when we again click on the back button page on browser, we get redreicted to same page where we had logout. Which we want to prevent when we click on back button on browser. This is due to Https Cache. When we click on back button the page which appears is a cache page. We can prevent this using Https. Headers. 
+
+# File Uploading
+
+- It requires a JAR file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
