@@ -9,6 +9,11 @@
 <body>
 <!-- Checking if the user directly accessing login -->
 <%
+	response.setHeader("Cache-Control","no-cache, no-store, must-revalidate"); //HTTP 1.1+
+	/*
+	response.setHeader("Pragma","no-cache"); //HTTP 1.0
+	response.setHeader("Expires","0") // Proxy servers (0 seconds)
+	*/
 	if(session.getAttribute("loginusernmae")==null){
 		response.sendRedirect("LoginPage.jsp");
 	}

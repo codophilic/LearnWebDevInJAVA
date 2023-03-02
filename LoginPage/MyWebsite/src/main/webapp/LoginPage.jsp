@@ -15,7 +15,7 @@
 	Enter User name:
 	<input type='text' name='username'><br>
 	Enter Password:
-	<input type='text' name='password'><br>
+	<input type='password' name='password'><br>
 	<input type='submit'>
 	</form>
 	<c:if test="${requestScope.reply=='User ID not found. Please create a new user ID by clicking on the below button'}">

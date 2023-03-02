@@ -17,7 +17,7 @@
 	Enter a new user name:
 	<input type='text' name='username'>
 	Enter a new password:
-	<input type='text' name='password'>
+	<input type='password' name='password'>
 	<input type='submit'>	
 	</form>
 	<br>
