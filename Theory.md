@@ -505,7 +505,15 @@ js: This folder might be used to store JavaScript files that are used to add int
 - So while servlets don't have a main method, they have a well-defined lifecycle and a set of methods that are called by the servlet container to handle incoming requests.
 
 
+## Server Folder structure
 
+- The Server folder in Eclipse typically contains information about the server(s) that you have configured within the IDE. This folder is created when you add a server to Eclipse using the Servers view, which is used to manage your server configurations.
+
+- The Server folder itself does not contain any specific files or subfolders that are relevant to running your web application. Instead, it serves as a container for storing server-specific configuration information, such as the server's runtime environment, the ports that it uses, and any other settings that are specific to the server.
+
+- Inside the Server folder, you will typically see one or more subfolders, each of which corresponds to a different server configuration that you have defined in Eclipse. These subfolders contain information about the specific server, such as the server's name, version, and runtime environment. In addition, they may contain additional configuration files, such as server-specific deployment descriptors or configuration files.
+
+- When you run a web application in Eclipse, the IDE will typically deploy the application to a server that you have configured within the Servers view. The IDE will use the configuration information in the Server folder to determine which server to use and how to deploy the application to that server. Once the application is deployed, the server will use its own configuration settings to manage the application's runtime environment and process incoming requests from clients.
 
 
 
