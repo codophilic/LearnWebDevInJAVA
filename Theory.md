@@ -412,11 +412,97 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 - It requires a JAR file
 
 
+# Files and Folders structure in Eclipse
+
+- In a Eclipse Dynamic Web Project:
+
+1. `.settings`: This folder contains Eclipse-specific configuration settings for your project, such as the formatting rules for your code, the version of Java that you're using, and other settings that are specific to the Eclipse IDE. You typically won't need to modify anything in this folder directly, as these settings can be managed through the Eclipse Preferences menu. Example `org.eclipse.jdt.core.prefs` these settings configure how the Java code formatter should format your code when you save it. In this example, the settings specify things like the amount of whitespace to use around method invocation arguments, assignments, and binary expressions.
+
+2. `.project`: This file contains metadata about your project, such as the name of the project, the type of project (in this case, a Dynamic Web Project), and other configuration settings. You typically won't need to modify this file directly, as these settings can be managed through the Eclipse Project Properties menu.
+
+3. `.classpath`: This file contains the classpath settings for your project, which tells Eclipse where to find the classes and libraries that your project depends on. This includes the location of the JAR files in the WEB-INF/lib folder. You typically won't need to modify this file directly, as these settings can be managed through the Eclipse Project Build Path menu.
+
+4. `META-INF`: This folder is typically used to store metadata and configuration files for the web application, such as the MANIFEST.MF file that contains information about the application's classpath and other details that the JVM needs to run the application correctly. You might also see other files in this folder that are specific to your web application framework or server.
+
+The MANIFEST.MF file contains metadata about your application's JAR file, including its version number, its dependencies on other JAR files, and other attributes that the JVM needs to run the application correctly.
+
+One of the key attributes in the MANIFEST.MF file is the "Class-Path" attribute, which specifies the relative or absolute paths to the JAR files that your application depends on. This attribute is used by the JVM to locate and load the classes and resources that are needed by your application at runtime.
+
+Other attributes in the MANIFEST.MF file might include the name and version of your application, information about the application's main class, and other details that are specific to your application's needs.
+
+Note that the contents of the MANIFEST.MF file can be modified using a variety of tools and build systems, such as Maven or Ant. These tools can automate the process of creating and updating the MANIFEST.MF file based on your project's dependencies and other settings.
+
+5. `WEB-INF`: This folder contains web-related resources that are not directly accessible from the web, such as configuration files, libraries, and servlet classes. Some of the key subfolders that you might see in this folder include:
+
+- classes: This folder is used to store compiled Java classes that are part of your web application.
+
+- lib: This folder is used to store JAR files that your web application depends on.
+
+- web.xml: This file is the deployment descriptor for your web application, and it contains metadata about your servlets, filters, and other web-related resources.
+
+6. `WebContent`: This folder contains the web-related resources that are accessible from the web, such as JSP files, HTML files, images, and other static resources. Some of the key subfolders that you might see in this folder include:
+
+WEB-INF: This folder is used to store web-related resources that are not directly accessible from the web, as described above.
+css: This folder might be used to store CSS files that are used to style your web pages.
+js: This folder might be used to store JavaScript files that are used to add interactivity to your web pages.
+
+
+## How the application runs (web server (Tomcat) side loading and initializing)?
+
+- The web server is responsible for loading and initializing the web application based on the information in the deployment descriptor (web.xml file) and other configuration files. Once the web server has initialized the application, it uses the classpath settings to locate and load the application's resources, including the servlet classes and other dependent libraries.
+
+- Once the web server has loaded the necessary resources and initialized the application, it hands off control to the JVM, which then takes over the process of executing the application code. The JVM uses the classpath settings to locate and load the application's classes and libraries, and then executes the code based on the application's logic.
+
+- So, in summary, the web server and the JVM work together to run a web application. The web server is responsible for loading and initializing the application, while the JVM is responsible for executing the application code. The classpath settings play a crucial role in enabling both the web server and the JVM to locate and load the necessary resources to run the application.
+
+-  The .project file is not directly used by the web server when running a web application, it can still be a useful tool for configuring and managing your project within the Eclipse IDE, which can in turn help you to deploy and run the application on a web server more effectively.
+
+## When we just start the web server 
+
+- When you start a web server such as Tomcat, the server will read the configuration information from the web.xml file and initialize the web application accordingly. This initialization process typically includes loading any servlets or other web components that are defined in the application, as well as setting up any configuration parameters or resource references that the application needs to function.
+
+- The .classpath file is used by Eclipse to determine which Java class files and libraries are needed to build and run your web application. When you click on the "Run" button in Eclipse, the IDE will use the information in the .classpath file to compile your Java source code into class files, and then package those class files into a WAR file that can be deployed to the server.
+
+- Once the WAR file has been deployed to the server and the web application has been initialized, the server will be ready to process incoming requests from clients. When a client sends a request to the server, the server will use its own internal routing mechanisms to determine which servlet or other web component should handle the request. The server will then invoke the appropriate Java class to handle the request, and the JVM will execute the code in that class.
+
+- So to summarize, the web server loads and initializes the web application based on the configuration information in web.xml, and then waits for incoming requests from clients. When a request comes in, the server uses its own routing mechanisms to determine which Java class should handle the request, and the JVM executes the code in that class. The .classpath file is used by Eclipse to compile and package your Java source code into a deployable WAR file, but it is not used by the server at runtime.
+
+
+## When we click on Run button in eclipse
+
+- When you click on the Run button in Eclipse to run a servlet, several steps happen behind the scenes. Here's a simplified overview of the process:
+
+- The Java source code for your servlet is compiled into bytecode (.class) files, which are stored in the WEB-INF/classes folder.
+
+- The compiled bytecode files are packaged into a Java Archive (JAR) file, which is stored in the WEB-INF/lib folder along with any external libraries that your servlet depends on.
+
+- The web server (such as Apache Tomcat or Jetty) starts up and reads the configuration information from the web.xml file, which is located in the WEB-INF folder. This file contains information about your servlet, such as the URL mapping and initialization parameters.
+
+- When a request is received that matches the URL mapping for your servlet, the web server loads the servlet class from the WEB-INF/classes folder and creates an instance of the servlet.
+
+- The web server calls the init() method of your servlet to perform any initialization tasks that your servlet needs to do before it can handle requests.
+
+- When a request is received for your servlet, the web server calls the appropriate method (such as doGet() or doPost()) on your servlet instance, passing in the request and response objects as parameters.
+
+- Your servlet processes the request, generates a response, and sends it back to the client through the response object.
+
+- So in summary, when you click on the Run button in Eclipse, the web server starts up and reads the configuration information from the web.xml file, then loads and initializes your servlet. When a request is received, your servlet processes it and generates a response that is sent back to the client. The folders that are involved in this process include WEB-INF/classes, WEB-INF/lib, and WEB-INF/web.xml.
 
 
 
+## src/main folder
 
+- The src/main folder is used to hold the main source code and resources for your project. If you delete this folder, you will lose all of your main source code and resources, which will likely cause your application to fail to compile or run correctly.
 
+## Why there is no main method in servlet?
+
+- Servlets don't have a main method like standalone Java applications. Instead, servlets are components that run within a web server and are managed by the web server's servlet container.
+
+- When a servlet container starts up, it initializes the servlets that are defined in the web application's deployment descriptor (usually the web.xml file). The servlet container manages the lifecycle of the servlets, including creating instances of the servlets and invoking their methods to handle incoming requests from clients.
+
+- The main entry point for a servlet is the service method, which is called by the servlet container for each incoming request. The service method then delegates to other methods like doGet or doPost to handle the specific type of request.
+
+- So while servlets don't have a main method, they have a well-defined lifecycle and a set of methods that are called by the servlet container to handle incoming requests.
 
 
 
