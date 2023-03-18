@@ -187,6 +187,7 @@
 - `@WebServlet` annotation is used to map the servlet with the specified name.
 
 
+**- To add JAR we need to configure those JARS in Properties>Java Build Path>Libraries. For Jakarta JARS we need to add server runtime library in the classpath**
 
 
 
@@ -721,7 +722,12 @@ log4j.appender.console.layout.ConversionPattern=%d [%t] %-5p %c - %m%n
 
 - Log4j2 has several improvements over Log4j, including better performance, improved reliability, and new features such as support for lambda expressions in logging statements. Log4j2 also has a more flexible configuration system that allows you to configure your logging system using XML, JSON, YAML, or properties files.
 
+- To use log4j2 we need to make sure the code must have the core jars which are 
 
+```
+log4j-api-2.20.0.jar
+log4j-core-2.20.0.jar
+```
 
 
 

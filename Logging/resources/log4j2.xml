@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+ <Properties>
+    <Property name="basePath">C:/Harsh/LearnWebDevInJAVA/Logging/DivisonLogs</Property> <!-- This basePath named is passed in Filename/FilePattern -->
+    <!-- basePath is my logs destination variable -->
+    
+    <Prperty name="timestamps">%d{yyyy-MM-dd HH-mm-ss}</Prperty>
+  </Properties> 
+  
+  
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT"> <!-- ConsoleAppenders -->
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+    
+		<RollingFile name="fileLogger"
+			fileName="${basePath}/divlog-${timestamps}.log"
+			filePattern="${basePath}/divlog-${timestamps}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<SizeBasedTriggeringPolicy size="10MB" />
+			</Policies>
+			<!-- Max 10 files will be created everyday -->
+			<DefaultRolloverStrategy max="10">
+				<Delete basePath="${basePathr}" maxDepth="10">
+					<!-- Delete all files older than 30 days -->
+					<IfLastModified age="30d" />
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+    
+  </Appenders>
+  <Loggers>
+  <!-- 
+  Custom Log
+  <Logger name="com.foo.Bar" level="TRACE" additivity="false"/> For particular packages defining level
+  Additivity is basically logging of the custom logger as well if a root logger also have the same level it will also
+  get logged when true or else not when false.
+		<Root level="ERROR">
+		  <AppenderRef ref="STDOUT">
+		</Root>
+   -->
+    <Root level="trace"> <!-- Root loggers -->
+      <AppenderRef ref="Console"/> <!--  Log in the console  -->
+      <AppenderRef ref="fileLogger"/> <!--  Log in the file as well -->
+    </Root>
+    
+  </Loggers>
+</Configuration>
