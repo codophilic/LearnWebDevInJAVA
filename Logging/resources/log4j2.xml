@@ -5,7 +5,7 @@
     <Property name="basePath">C:/Harsh/LearnWebDevInJAVA/Logging/DivisonLogs</Property> <!-- This basePath named is passed in Filename/FilePattern -->
     <!-- basePath is my logs destination variable -->
     
-    <Prperty name="timestamps">%d{yyyy-MM-dd HH-mm-ss}</Prperty>
+ 
   </Properties> 
   
   
@@ -15,19 +15,19 @@
     </Console>
     
 		<RollingFile name="fileLogger"
-			fileName="${basePath}/divlog-${timestamps}.log"
-			filePattern="${basePath}/divlog-${timestamps}.log">
+			fileName="${basePath}/divlog-${date:yyyy-MM-dd'_'HH-mm-ss}.log"
+			filePattern="${basePath}/divlog-${date:yyyy-MM-dd'_'HH-mm-ss}.log">
 			<PatternLayout>
-				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				<pattern>d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
 				</pattern>
 			</PatternLayout>
 			<Policies>
 				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
-				<SizeBasedTriggeringPolicy size="10MB" />
+				<SizeBasedTriggeringPolicy size="1KB" /> <!-- File limit -->
 			</Policies>
 			<!-- Max 10 files will be created everyday -->
 			<DefaultRolloverStrategy max="10">
-				<Delete basePath="${basePathr}" maxDepth="10">
+				<Delete basePath="${basePath}" maxDepth="10">
 					<!-- Delete all files older than 30 days -->
 					<IfLastModified age="30d" />
 				</Delete>
