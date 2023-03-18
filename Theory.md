@@ -516,6 +516,212 @@ js: This folder might be used to store JavaScript files that are used to add int
 - When you run a web application in Eclipse, the IDE will typically deploy the application to a server that you have configured within the Servers view. The IDE will use the configuration information in the Server folder to determine which server to use and how to deploy the application to that server. Once the application is deployed, the server will use its own configuration settings to manage the application's runtime environment and process incoming requests from clients.
 
 
+# Logging using log4j/log4j2 (LOgging Utility for JAVA)
+
+- log4j is a reliable, fast and flexible logging framework (APIs) written in Java, which is distributed under the Apache Software License. log4j is a popular logging package written in Java. log4j has been ported to the C, C++, C#, Perl, Python, Ruby, and Eiffel languages.
+
+- It is designed to handle Java Exceptions from the start.
+
+- Just like in Logging API java utils, it uses multiple levels, namely ALL, TRACE, DEBUG, INFO, WARN, ERROR and FATAL.
+
+- log4j has three main components:
+
+1. *loggers:* Responsible for capturing logging information. This takes message from the java application and passes to the appenders.
+
+2. *appenders:* Responsible for publishing logging information to various preferred destinations like in a file or console or DB. Appender takes the data and goes to the layout. After getting the require style it stores the data in the destination.
+
+3. *layouts:* Responsible for formatting logging information in different styles.
+
+- Logging does have its drawbacks also. It can slow down an application. If too verbose, it can cause scrolling blindness. To alleviate these concerns, log4j is designed to be reliable, fast and extensible.
+
+## Core components and its different methods
+
+1. **Logger:** The Logger is the top-level layer which provides the Logger object. The Logger object is responsible for taking logging information, and they are stored in a namespace hierarchy.
+
+- Logger is a class, which is available in org.apache.log4j.*
+
+- We have to create Logger object one per java class
+Logger component is used to enable the log4j in our java class
+
+- Logger methods are used to generate log statements in a java class instead of SOPLS.
+
+- In order to get an object of Logger class, we need to call a static factory method which will give an object as a return type
+
+- We have to create a Logger object right after our class name. For example: `static Logger log = Logger.getLogger(YourClassName.class.getName())`
+
+- Logger object has some methods; these methods are used to print the status of our application. These methods are:
+
+```
+debug()
+info()
+warn()
+error()
+fatal()
+```
+
+- These all methods are approximately the same. Priority order of these methods is `debug < info < warn < error < fatal`
+
+2. **Appender:** The appender is the lower layer component, which provides Appender objects. The Appender object is responsible for publishing logging information to various preferred destinations such as a file, database, console, Unix Syslog, etc.
+
+- Logger classes are used to generate statements in different levels, and Appender takes these logs and stores in some database or files.
+
+- Appender is not a class, it is an interface.
+
+- Different types of appenders are
+
+1. *FileAppender:* used to append log events to a file. It supports two more appender classes:
+
+- RollingFileAppender: Extends FileAppender class to back up the log files when they reach a certain size.
+
+- DailyRollingFileAppender: Extends FileAppender class so that the underlying file is rolled over at a user-chosen frequency.
+
+2. *ConsoleAppender:* Appends log events to System.err or System.out using a layout specified by the user. The default console is System.out.
+
+3. *JDBCAppender:* Used for Database.
+
+4. *SMTPAppender:* Used to send an email when a specific logging event occurs, typically on errors or fatal errors.
+
+5. *SocketAppender:* Used for remote storage.
+
+6. *SyslogAppender:* Sends messages to a remote Syslog domain.
+
+7. *TelnetAppender:* Specializes in writing to a read-only socket.
+
+8. *WriterAppender:* Used to append log events to a Writer or an OutputStream depending on the user's choice.
+
+- Different methods used inside Appenders are:
+
+1. `setThreshold(Level level):` Sets the minimum severity level for log messages that will be accepted by the appender.
+
+2. `setLayout(Layout layout):` Sets the layout that will be used to format log messages.
+
+3. `setFilter(Filter filter):` Sets a filter that can be used to selectively discard log messages.
+
+4. `start():` Starts the appender.
+
+3. **Layout:** The layout layer provides Layout objects which are used to format logging information in different styles. It is used to provide support to appender objects before publishing logging information.
+
+- Layout objects play an important role in publishing logging information in a way, i.e., human-readable and reusable.
+
+- The layout component defines the format in which the log statements are written into the destination repository by the appender.
+
+- There are different types of layout classes in log4j:
+
+1. `SimpleLayout:` It is used to format the output in a very simple manner; it prints the Level, then a dash "-" and then the log message.
+
+2. `PatternLayout:` Used to format the output based on conversion pattern specified or if none is specified, the default conversion pattern is considered.
+
+3. `HTMLLayout:` It formats the output as an HTML table.
+
+4. `XMLLayout`
+
+- Some of the Layout methods are :
+
+1. `toSerializable(LogEvent event):` Formats a LogEvent into a Serializable object that can be sent over a network or stored in a file.
+
+2. `getContentFormat():` Returns a string that describes the format of the layout.
+
+3. `getHeader():` Returns a string that should be appended to the beginning of the log file.
+
+4. `getFooter():` Returns a string that should be appended to the end of the log file.
+
+
+## Support Objects
+
+1. *Level Object:* The Level object defines the granularity and priority of any logging information. There are seven levels of logging defined within the API: OFF, DEBUG, INFO, ERROR, WARN, FATAL, and ALL.
+
+2. *Filter Object:* The Filter object is used to analyze logging information and make further decisions on whether that information should be logged or not.
+
+- An Appender objects can have several Filter objects associated with them. If logging information is passed to a particular Appender object, all the Filter objects associated with that Appender need to approve the logging information before it can be published to the attached destination.
+
+3. *ObjectRenderer* The ObjectRenderer object is specialized in providing a String representation of different objects passed to the logging framework. This object is used by Layout objects to prepare the final logging information.
+
+4.  *LogManager* The LogManager object manages the logging framework. It is responsible for reading the initial configuration parameters from a system-wide configuration file or a configuration class. Configuring log4j involves assigning the Level, defining Appender, and specifying Layout objects in a configuration file.
+
+- The log4j.properties file is a log4j configuration file which keeps properties in key-value pairs. By default, the LogManager looks for a file named log4j.properties/ log4j.xml in the CLASSPATH.
+
+- Example 
+
+```
+# Example properties file
+database.url = jdbc:mysql://localhost:3306/mydatabase
+database.user = myusername
+database.password = mypassword
+log4j.rootLogger = INFO, console
+log4j.appender.console = org.apache.log4j.ConsoleAppender
+log4j.appender.console.layout = org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern = %d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+
+```
+
+- In this example, the properties file contains several key-value pairs. The first three key-value pairs specify the URL, username, and password for a database. The remaining key-value pairs configure Log4j2. For example, the log4j.rootLogger property sets the root logger's log level to INFO and its appender to "console". The log4j.appender.console property specifies that log messages should be sent to the console using a ConsoleAppender. The log4j.appender.console.layout property specifies that the layout for the ConsoleAppender should be a PatternLayout, which formats log messages using a pattern string.
+
+- This properties files are defined using the references.
+
+- https://logging.apache.org/log4j/2.x/manual/configuration.html#Properties
+
+- https://logging.apache.org/log4j/2.x/manual/configuration.html#Properties_Reference
+
+- https://logging.apache.org/log4j/2.x/manual/configuration.html#Configuration_Examples
+
+- Behind the scenes, the Log4j2 configuration system reads your configuration file and constructs a corresponding set of Java objects that represent the configured loggers, appenders, and layouts. The log4j.rootLogger property you specified is used to create a LoggerConfig object for the root logger. The INFO value you specified is used to set the root logger's log level to INFO, and the Console value is used to create a ConsoleAppender object and associate it with the root logger.
+
+- When you call a logging method on a Logger object, such as logger.info("Hello, world!"), the Log4j2 system uses the configuration information to determine whether the log message should be logged, and if so, which appenders to send it to and how to format it.
+
+- So, in summary, the Log4j2 configuration file is a way to specify the configuration of the logging system using a simple and concise syntax. The configuration system then creates the appropriate Java objects to implement the configuration, and the Logger objects you obtain from the LogManager use those objects to log messages.
+
+- When you define a Log4j2 configuration file, the LogManager reads the file and creates the corresponding LoggerConfig, Appender, and Layout objects. You do not need to explicitly create these objects in your code; instead, you can obtain a Logger object from the LogManager and use it to log messages.
+
+- The LogManager uses the configuration information to determine which LoggerConfig objects are associated with each Logger, and which Appender and Layout objects are associated with each LoggerConfig. When you call a logging method on a Logger object, the LogManager uses this information to determine how to handle the log message.
+
+- This separation of configuration and logging logic is one of the strengths of the Log4j2 system.
+
+- You can specify multiple configuration files by setting the log4j.configurationFile system property. This property can contain a comma-separated list of configuration file locations. Log4j will merge the configurations from all the specified files into a single configuration.
+
+- For example, if you have two configuration files named log4j2.properties and log4j2-extra.properties in your classpath
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/15.jpg)
+
+## Working of Log4j and all its components
+
+- When you use Log4j with a properties file configuration, the LogManager reads the configuration file and creates the corresponding LoggerConfig, Appender, and Layout objects. Here is an overview of the steps involved in the logging process using Log4j with properties configuration:
+
+1. Load the configuration file: The first step is to load the Log4j2 configuration file, which is typically named "log4j2.properties" or "log4j2.xml". This file specifies the log levels, appenders, and other configuration options for your application's logging system.
+
+2. Create a Logger object: To log messages, you need to obtain a Logger object from the LogManager. You can do this using the static LogManager.getLogger() method, which takes the name of the logger you want to use. The logger name typically corresponds to the name of the class that is doing the logging. For example:
+
+```
+private static final Logger logger = LogManager.getLogger(MyClass.class);
+```
+
+3. Log a message: Once you have a Logger object, you can use its logging methods to log messages. These methods correspond to the log levels defined in the configuration file (e.g. debug(), info(), warn(), error(), fatal()). For example:
+
+```
+logger.info("This is an informational message");
+```
+
+4. Determine the appropriate LoggerConfig: When you call a logging method on a Logger object, Log4j uses the logger name to determine which LoggerConfig to use. The LoggerConfig specifies the log level and appenders for the logger. If there is no LoggerConfig with an exact match to the logger name, Log4j will use the root LoggerConfig.
+
+5. Determine the appropriate Appender: Once the appropriate LoggerConfig is determined, Log4j uses it to determine which Appender or Appenders to use. An Appender is responsible for writing log messages to a specific destination (e.g. console, file, database). If multiple Appenders are specified, Log4j will use them in the order they are listed.
+
+6. Format the log message: Once the appropriate Appender or Appenders are determined, Log4j uses the Layout defined for the Appender to format the log message. The Layout specifies the format of the log message, including things like the date, time, log level, logger name, and message.
+
+7. Write the log message: Finally, Log4j writes the formatted log message to the appropriate destination(s) using the Appender(s) specified in the configuration file.
+
+Here's an example of a simple Log4j properties file configuration:
+
+```
+log4j.rootLogger=INFO, console
+
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=%d [%t] %-5p %c - %m%n
+
+```
+
+- Log4j2 has several improvements over Log4j, including better performance, improved reliability, and new features such as support for lambda expressions in logging statements. Log4j2 also has a more flexible configuration system that allows you to configure your logging system using XML, JSON, YAML, or properties files.
+
+
 
 
 
