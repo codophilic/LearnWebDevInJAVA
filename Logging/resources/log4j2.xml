@@ -1,53 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
-
- <Properties>
-    <Property name="basePath">C:/Harsh/LearnWebDevInJAVA/Logging/DivisonLogs</Property> <!-- This basePath named is passed in Filename/FilePattern -->
-    <!-- basePath is my logs destination variable -->
+  <Properties>
+    <Property name="basePath">C:/Harsh/LearnWebDevInJAVA/Logging/DivisionLogs</Property>
+    <Property name="basePathAdd">C:/Harsh/LearnWebDevInJAVA/Logging/AdditionLogs</Property>
   </Properties> 
   
-  
   <Appenders>
-    <Console name="Console" target="SYSTEM_OUT"> <!-- ConsoleAppenders -->
+    <Console name="Console" target="SYSTEM_OUT">
       <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
     </Console>
     
-		<RollingFile name="fileLogger"
-			fileName="${basePath}/divlog-${date:yyyy-MM-dd'_'HH-mm-ss}.log"
-			filePattern="${basePath}/divlog-${date:yyyy-MM-dd'_'HH-mm-ss}.log">
-			<PatternLayout>
-			<pattern>
-			%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
-			</pattern>
-			
-			</PatternLayout>
-			<Policies>
-				<SizeBasedTriggeringPolicy size="1KB" /> <!-- File limit -->
-			</Policies>
-			<!-- Max 10 files will be created everyday -->
-			<DefaultRolloverStrategy max="10">
-				<Delete basePath="${basePath}" maxDepth="10">
-					<!-- Delete all files older than 30 days -->
-					<IfLastModified age="30d" />
-				</Delete>
-			</DefaultRolloverStrategy>
-		</RollingFile>
+    <RollingFile name="divisionFileLogger"
+      fileName="${basePath}/divlog-${date:yyyy-MM-dd'_'HH-mm-ss}.log"
+      filePattern="${basePath}/divlog-%d{yyyy-MM-dd'_'HH-mm-ss}-%i.log">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="1KB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="10"/>
+    </RollingFile>
+    
+    <RollingFile name="additionFileLogger"
+      fileName="${basePathAdd}/addlog-${date:yyyy-MM-dd'_'HH-mm-ss}.log"
+      filePattern="${basePathAdd}/addlog-%d{yyyy-MM-dd'_'HH-mm-ss}-%i.log">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="1KB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="10"/>
+    </RollingFile>
     
   </Appenders>
+  
+  
   <Loggers>
-  <!-- 
-  Custom Log
-  <Logger name="com.foo.Bar" level="TRACE" additivity="false"/> For particular packages defining level
-  Additivity is basically logging of the custom logger as well if a root logger also have the same level it will also
-  get logged when true or else not when false.
-		<Root level="ERROR">
-		  <AppenderRef ref="STDOUT">
-		</Root>
-   -->
-    <Root level="trace"> <!-- Root loggers -->
-      <AppenderRef ref="Console"/> <!--  Log in the console  -->
-      <AppenderRef ref="fileLogger"/> <!--  Log in the file as well -->
+    <Logger name="DivisionLogs" level="trace" additivity="false"> <!-- Logger name should be same as name defined in the LogManager.getLogger("DivisionLogs"); -->
+      <AppenderRef ref="divisionFileLogger"/>
+    </Logger>
+    <Logger name="AdditionLogs" level="trace" additivity="false">
+      <AppenderRef ref="additionFileLogger"/>
+    </Logger>
+    <Root level="trace">
+      <AppenderRef ref="Console"/>
     </Root>
-    
   </Loggers>
+  
 </Configuration>

@@ -679,7 +679,7 @@ log4j.appender.console.layout.ConversionPattern = %d{yyyy-MM-dd HH:mm:ss} %-5p %
 
 - You can specify multiple configuration files by setting the log4j.configurationFile system property. This property can contain a comma-separated list of configuration file locations. Log4j will merge the configurations from all the specified files into a single configuration.
 
-- For example, if you have two configuration files named log4j2.properties and log4j2-extra.properties in your classpath
+- For example, if you have two configuration files named log4j2.properties and log4j2-extra.properties in your classpath. 
 
 ![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/15.jpg)
 
@@ -737,6 +737,8 @@ log4j-core-2.20.0.jar
 
 
 
+
+-Dlog4j.configurationFile=C:/Harsh/LearnWebDevInJAVA/Logging/resources/log4j2.xml
 
 
 

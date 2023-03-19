@@ -1,0 +1,4 @@
+14:34:58.494 [http-nio-8080-exec-7] INFO  AdditionLogs - User Enter number1
+14:34:58.494 [http-nio-8080-exec-7] INFO  AdditionLogs - User Enter number2
+14:34:58.494 [http-nio-8080-exec-7] INFO  AdditionLogs - Addition Took Place
+14:34:58.494 [http-nio-8080-exec-7] INFO  AdditionLogs - Code Completed
