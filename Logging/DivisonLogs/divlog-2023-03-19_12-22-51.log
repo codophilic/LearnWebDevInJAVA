@@ -1,0 +1,4 @@
+12:22:51.072 [http-nio-8080-exec-9] INFO  DivisionLogs - User Enter number1
+12:22:51.083 [http-nio-8080-exec-9] INFO  DivisionLogs - User Enter number2
+12:22:51.083 [http-nio-8080-exec-9] INFO  DivisionLogs - Division Took Place
+12:22:51.083 [http-nio-8080-exec-9] INFO  DivisionLogs - Code Completed

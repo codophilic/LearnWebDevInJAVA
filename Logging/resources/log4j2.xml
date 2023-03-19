@@ -18,11 +18,12 @@
 			fileName="${basePath}/divlog-${date:yyyy-MM-dd'_'HH-mm-ss}.log"
 			filePattern="${basePath}/divlog-${date:yyyy-MM-dd'_'HH-mm-ss}.log">
 			<PatternLayout>
-				<pattern>d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
-				</pattern>
+			<pattern>
+			%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+			</pattern>
+			
 			</PatternLayout>
 			<Policies>
-				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
 				<SizeBasedTriggeringPolicy size="1KB" /> <!-- File limit -->
 			</Policies>
 			<!-- Max 10 files will be created everyday -->
