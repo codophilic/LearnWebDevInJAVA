@@ -4,8 +4,6 @@
  <Properties>
     <Property name="basePath">C:/Harsh/LearnWebDevInJAVA/Logging/DivisonLogs</Property> <!-- This basePath named is passed in Filename/FilePattern -->
     <!-- basePath is my logs destination variable -->
-    
- 
   </Properties> 
   
   
