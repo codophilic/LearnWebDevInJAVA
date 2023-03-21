@@ -82,6 +82,10 @@
 
 - In the latest version `javax.servlet` package is been replaced by `jakarta.servlet`.(In Tomcat libraries , `servlet-api.jar` has defined these packages)
 
+- To work with `jakarta` , go in **Properties->Java Build->Libraries->Add Library-> Server Runtime -> Apache Tomcat server** , Apply & Close.
+
+- Any JARS working must be added in libraries ModulePath. This creates a References Libraries folder in eclipse.
+
 ## RequestDispatcher and sendRedirect
 
 - In RequestDispatcher, we call one servlet(s1) from another servlet(s2). So, s1 request response object get passed to s2. S2 perform the operation and provides the response directly to the client page which has s1 url. These servlets are within same web application.
