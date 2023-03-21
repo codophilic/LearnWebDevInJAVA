@@ -798,6 +798,8 @@ The Type 4 driver is also known as the thin driver. It communicates directly wit
 
 - Overall, the JDBC API provides a standard way to interact with relational databases from Java code, allowing you to execute SQL statements, retrieve results, and perform other database operations programmatically.
 
+- For PostgreSQL JDBC [document](https://jdbc.postgresql.org/documentation/use/) .
+
 
 
 
