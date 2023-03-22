@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>JDBC DAO</title>
+</head>
+<body>
+	<h1>JDBC DAO</h1>
+	<br>Fetch Data<br>
+	<form action="./getthedatas" method='get'> 
+		Enter id: <input type = 'text' name='id'><br>
+		<input type='submit'>
+	</form>
+	<br>
+	<br>
+	
+	<br>Insert Data<br>
+	<form action="Insert" method='post'> 
+	Enter id: <input type = 'text' name='id'><br>
+	Enter name: <input type = 'text' name='name'><br>
+	<input type='submit'>
+	</form>
+	<br>
+	<br>
+	
+	<br>Update Data<br>
+	<form action='./updates' method='post'> 
+	Enter your id: <input type = 'text' name='id'><br>
+	Enter New name: <input type = 'text' name='name'><br>
+	<input type='submit'>
+	</form>
+	<br>
+	<br>
+	
+	<br>Delete Data<br>
+	<form action="./Delete" method='get'> 
+	Enter id: <input type = 'text' name='id'><br>
+	<input type='submit'>
+	</form>
+	<br>
+	<br>
+	
+	<form action="./alldata" method='post'>
+	<br>Get All Data<br>
+	<input type='submit' name="All">
+	</form>
+	<br>
+	<br>
+	
+</body>
+</html>

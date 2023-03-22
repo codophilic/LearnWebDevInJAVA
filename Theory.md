@@ -190,6 +190,8 @@
 
 - `@WebServlet` annotation is used to map the servlet with the specified name.
 
+- Whenever Webservlet url does not work change the url and try it.
+
 
 **- To add JAR we need to configure those JARS in Properties>Java Build Path>Libraries. For Jakarta JARS we need to add server runtime library in the classpath**
 
@@ -800,6 +802,68 @@ The Type 4 driver is also known as the thin driver. It communicates directly wit
 
 - For PostgreSQL JDBC [document](https://jdbc.postgresql.org/documentation/use/) .
 
+# DAO ( Data Access Object )
 
+- In Java, DAO (Data Access Object) is a design pattern that provides an abstraction layer between the application code and the database. The DAO pattern separates the data persistence logic from the business logic of an application, allowing developers to work with data using an object-oriented interface.
 
+- The basic idea of the DAO pattern is to create a class that encapsulates all the database access code and provides a set of methods for performing CRUD (Create, Read, Update, Delete) operations on the data. This class can be thought of as a bridge between the application code and the database.
 
+- The DAO pattern is a way of organizing code in a Java application that separates the data access logic from the rest of the code, making it easier to work with data in a flexible and object-oriented manner.
+
+## Why DAO ?
+
+- Consider a simple Java application that needs to store and retrieve data from a database. Without using the DAO pattern, the application code would need to directly access the database using JDBC (Java Database Connectivity) or some other database driver. This would result in tightly-coupled code that would be difficult to maintain and test.
+
+- Using the DAO pattern, the application code would interact with a DAO class that abstracts away the details of the database access. The DAO class would provide a set of methods that the application code can use to perform CRUD operations on the data. The DAO class would be responsible for translating the application code's requests into database queries, executing the queries, and returning the results to the application code.
+
+## Code Access Security
+
+- The role of DAO (Data Access Object) in code access security is to provide a layer of abstraction between the application code and the database access code, which can help to improve the security of the application by limiting access to the database.
+
+- When using the DAO pattern, the database access code is encapsulated within the DAO class, and only the methods exposed by the DAO are available to the application code. This means that the application code cannot directly access the database, and must go through the DAO to perform database operations.
+
+- For example, the DAO class might restrict access to certain tables or columns in the database, or it might enforce validation rules to ensure that only valid data is written to the database. By controlling access to the data in this way, the DAO pattern helps to prevent unauthorized access, data tampering, or other security issues.
+
+- In addition, the DAO pattern can also help to prevent SQL injection attacks by providing a layer of abstraction between the application code and the database queries. By using prepared statements or other safe query mechanisms within the DAO class, the application code can avoid the risk of SQL injection vulnerabilities.
+
+- In the DAO architecture, the coupling between the application and the database is reduced. The DAO interface acts as an intermediary between the application and the database, which reduces the direct coupling between them.
+
+- However, there is still a certain level of coupling between the application and the database through the DAO implementation class. The DAO implementation class interacts directly with the database using JDBC or an ORM framework, which creates a level of coupling between the application and the database.
+
+- Therefore, the DAO architecture creates a loose coupling between the application and the database, but there is still a certain level of coupling between them. Overall, the level of coupling created by the DAO architecture is generally considered to be manageable and necessary for proper data access and persistence.
+
+## PROS & CONS
+
+1. Pros:
+
+- Separation of Concerns: The DAO architecture separates the code that interacts with the database from the rest of the application. This makes it easier to maintain and test the application, and allows for better organization of the code.
+
+- Abstraction: The DAO architecture provides an abstraction layer between the application and the database, which allows the application to be database-agnostic. This means that you can switch to a different database implementation without having to change the application code.
+
+- Code Reuse: By using the DAO architecture, you can reuse the same data access code across multiple parts of the application.
+
+3. Security: The DAO architecture allows you to control access to the database by defining and implementing specific methods for retrieving and modifying data. This can help to prevent unauthorized access to the database.
+
+2. Cons:
+
+- Increased Complexity: The DAO architecture adds an extra layer of complexity to the application, which can make it more difficult to understand and maintain.
+
+- Additional Code: The DAO architecture requires additional code to be written for the data access layer, which can be time-consuming and may require additional development resources.
+
+- Performance Overhead: The DAO architecture can result in additional overhead, especially if the data access layer involves complex queries or large datasets.
+
+- Learning Curve: The DAO architecture requires knowledge of specific design patterns and programming concepts, which may require additional training or expertise for developers who are not familiar with them.
+
+## DAO Architecture
+
+![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/16.png)
+
+- The DAO Layer consists of DAO interface & its implementation.
+
+## DAO-DTO
+
+- DAO is a class that usually has operations like save, update, delete. Whereas the DTO is just an object that holds data.
+
+- The advantage of the DAO layer is that if you need to change the underlying persistence mechanism you only have to change the DAO layer, and not all the places in the domain logic where the DAO layer is used from.
+
+- The advantage of DTO layer is that it adds a good deal of flexibility to the service layer and subsequently to the design of the entire application.
