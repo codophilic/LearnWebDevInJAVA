@@ -30,8 +30,11 @@ public class Update extends HttpServlet implements Servlet {
 			
 			PrintWriter out = response.getWriter();
 			
+			
+			
 			if (status==0) out.println("User profile updated");
 			else out.println("There is no data for given ID");
+			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

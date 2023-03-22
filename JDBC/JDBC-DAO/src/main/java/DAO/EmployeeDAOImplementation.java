@@ -62,9 +62,11 @@ public class EmployeeDAOImplementation implements EmployeeDAO{
 	@Override
 	public int update(EmployeeDTO data) throws SQLException {
 		String query="update Employee set Employee_name=? where Employee_id=?;";
+		
 		pst = con.prepareStatement(query);
-		pst.setInt(1,data.getEmployee_id());
-		pst.setString(2, data.getEmployee_name());
+		pst.setString(1, data.getEmployee_name());
+		pst.setInt(2,data.getEmployee_id());
+		
 		try{
 			pst.executeUpdate();
 			return 0;
@@ -76,7 +78,7 @@ public class EmployeeDAOImplementation implements EmployeeDAO{
 
 	@Override
 	public int delete(EmployeeDTO data) throws SQLException {
-		String query="delete Employee where Employee_id=?;";
+		String query="delete from Employee where Employee_id=?;";
 		pst = con.prepareStatement(query);
 		pst.setInt(1,data.getEmployee_id());
 		try{
@@ -107,7 +109,7 @@ public class EmployeeDAOImplementation implements EmployeeDAO{
 	
 	
 	// Destructor closing all connections
-	protected void finalize() throws Throwable{
+	public void finalize() throws Exception{
 		con.close();
 		st.close();
 		pst.close();

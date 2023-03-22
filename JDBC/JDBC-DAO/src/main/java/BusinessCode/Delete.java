@@ -30,7 +30,7 @@ public class Delete extends HttpServlet implements Servlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			if (status==0) out.println("User profile updated");
+			if (status==0) out.println("User profile deleted");
 			else out.println("There is no data for given ID");
 			
 		} catch (Exception e) {

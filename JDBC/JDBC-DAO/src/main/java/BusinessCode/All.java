@@ -22,7 +22,9 @@ public class All extends HttpServlet implements Servlet {
 		try {
 			EmployeeDAO empdao =  new EmployeeDAOImplementation();
 			PrintWriter out = response.getWriter();
+
 			out.println(empdao.getAll());
+			
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

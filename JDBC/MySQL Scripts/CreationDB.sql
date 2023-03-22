@@ -15,3 +15,6 @@ insert into Employee values
 Select * from Employee where Employee_id =1; 
 Select * from Employee where Employee_name="Harsh";
 
+update Employee set Employee_name='HarshPandy' where Employee_id=1;
+DELETE Employee where Employee_id=1;
+

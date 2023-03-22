@@ -31,8 +31,10 @@ public class GetData extends HttpServlet implements Servlet {
 			EmployeeDTO data = empdao.get(id);
 			
 			PrintWriter out = response.getWriter();
+			
 			if (data == null) out.println("User does not exists");
 			else out.println(data);
+			empdao.finalize();
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
