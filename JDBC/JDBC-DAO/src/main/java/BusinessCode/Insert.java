@@ -23,11 +23,11 @@ public class Insert extends HttpServlet implements Servlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		String name = request.getParameter("name");
 		
-		try {
+		try (EmployeeDAO empdao =  new EmployeeDAOImplementation();){
 			
 			EmployeeDTO data = new EmployeeDTO(id,name);
 			
-			EmployeeDAO empdao =  new EmployeeDAOImplementation();
+			
 			int status = empdao.insert(data);
 			
 			PrintWriter out = response.getWriter();

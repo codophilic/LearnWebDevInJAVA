@@ -19,14 +19,14 @@ public class All extends HttpServlet implements Servlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		try {
-			EmployeeDAO empdao =  new EmployeeDAOImplementation();
+		try(EmployeeDAO empdao =  new EmployeeDAOImplementation();){
+			
 			PrintWriter out = response.getWriter();
 
 			out.println(empdao.getAll());
 			
 			
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

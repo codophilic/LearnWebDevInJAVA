@@ -15,7 +15,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeDAOImplementation implements EmployeeDAO{
+public class EmployeeDAOImplementation implements EmployeeDAO, AutoCloseable{
 	
 	private Connection con;
 	private Statement st;
@@ -107,13 +107,24 @@ public class EmployeeDAOImplementation implements EmployeeDAO{
 		
 	}
 	
-	
+	@Override
 	// Destructor closing all connections
-	public void finalize() throws Exception{
-		con.close();
-		st.close();
-		pst.close();
-		rs.close();
+	public void close() throws SQLException{
+		// Use if else, because in the method some of the connections are used. If any 
+		// of the connection is found in exception, rest connection below in exception won't get
+		// closed.
+		if (con != null) {
+			con.close();
+		}
+		if (st != null) {
+			st.close();
+		}
+		if (rs !=null) {
+			rs.close();
+		}
+		if (pst!=null) {
+			pst.close();
+		}
 		System.out.println("---------Connections close-----------");
 	}
 

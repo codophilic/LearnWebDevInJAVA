@@ -7,7 +7,7 @@ import java.util.List;
  * Creating a generic interface which can be implemented by different class
  */
 
-public interface DAO<T> {
+public interface DAO<T> extends AutoCloseable {
 	
 	T get(int id) throws SQLException;
 	
@@ -19,5 +19,6 @@ public interface DAO<T> {
 	
 	int insert(T t ) throws SQLException;
 	
-	void finalize() throws Exception;
+	void close() throws Exception;
+	
 }

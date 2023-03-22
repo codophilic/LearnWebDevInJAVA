@@ -26,15 +26,15 @@ public class GetData extends HttpServlet implements Servlet {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		
-		try {
-			EmployeeDAO empdao =  new EmployeeDAOImplementation();
+		try(EmployeeDAO empdao =  new EmployeeDAOImplementation();){
+			
 			EmployeeDTO data = empdao.get(id);
 			
 			PrintWriter out = response.getWriter();
 			
 			if (data == null) out.println("User does not exists");
 			else out.println(data);
-			empdao.finalize();
+			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
