@@ -222,13 +222,13 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 
 - All the objects provided by the JSP are called implicit objects.
 
-- <% %> tag are called as scriptlet.
+- `<% %>` tag are called as scriptlet.
 
 ![](https://github.com/codophilic/LearnWebDevInJAVA/blob/main/Images/7.jpg)
 
-- Suppose you want to declare variable/method outside the method inside the class like instance variable, we can use <%! %> called declaration tag.
+- Suppose you want to declare variable/method outside the method inside the class like instance variable, we can use `<%! %>` called declaration tag.
 
-- Suppose you want to import any packages use <%@ page import = "package.name.*" %> called as directive tag. For multiple packages <%@ page import = "package1.name.*, package2.name2.*" %>
+- Suppose you want to import any packages use `<%@ page import = "package.name.*" %>` called as directive tag. For multiple packages `<%@ page import = "package1.name.*, package2.name2.*" %>`
 
 
 - Suppose you want to print out some information on page, this can be done using `out.println` in scriptlet. In JSP there is another way using <%= contents/variables/expression %> called as expression tag.
@@ -278,11 +278,11 @@ In this JSP tags are used to insert JAVA code into HTML pages. It is a Web based
 
 2. @include -> includes other JSP files in current JSP file
 
-- - Syntax: `<%@ include file="filename.jsp" %>`
+- Syntax: `<%@ include file="filename.jsp" %>`
 
 3. @taglib -> external tags provided by other frameworks
 
-- - - Syntax: `<%@ taglib uri="uri" prefix="fx" %>`
+- Syntax: `<%@ taglib uri="uri" prefix="fx" %>`
 
 ## Implicit Object provided by JSP
 
