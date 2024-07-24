@@ -737,6 +737,8 @@ log4j-core-2.20.0.jar
 
 # JDBC (Java DataBase Connectivity)
 
+![image](https://github.com/user-attachments/assets/5538d4de-de6e-4533-a20e-ec3e8f8fc774)
+
 - JDBC stands for Java Database Connectivity. It is a Java API that provides a standard way to access relational databases from Java programs. JDBC allows Java programs to interact with a wide range of database management systems, such as MySQL, Oracle, SQL Server, and many others.
 
 - JDBC is required because databases are essential components of most modern software applications, and Java is one of the most popular programming languages used to develop such applications. JDBC provides a way for Java programs to connect to databases, execute SQL statements, and retrieve results.
